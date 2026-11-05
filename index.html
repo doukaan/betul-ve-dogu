@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Betül & Doğu | Bizim Aşk Masalımız ❤️</title>
+  
+  <!-- ==========================================================
+       ÖZELLEŞTİRİLMİŞ BİLGİLER:
+       - İsimler: Betül & Doğu
+       - Başlangıç Tarihi: 21 Ekim 2026
+       - Şarkı: Kaldırıldı
+       ========================================================== -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+  <!-- Google Fonts: Başlıklar için Playfair & Cormorant, El Yazısı için Dancing Script, Gövde için Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Canvas Confetti Kütüphanesi -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* ==========================================================
+       1. GLOBAL DEĞİŞKENLER & TEMEL AYARLAR (Rose Gold & Pink)
+       ========================================================== */
+    :root {
+      --bg-cream: #FFF5F7;
+      --bg-soft-pink: #FDE2E8;
+      --rose-light: #FFD1DC;
+      --rose-accent: #FF8DA1;
+      --deep-rose: #D84A75;
+      --wine-rose: #70243C;
+      --text-dark: #3A1D28;
+      --text-muted: #7E5265;
+      --gold-gradient: linear-gradient(135deg, #F8E3C5 0%, #E5A88B 50%, #C9687E 100%);
+      --rose-gradient: linear-gradient(135deg, #FF9A9E 0%, #F6416C 100%);
+      --glass-bg: rgba(255, 255, 255, 0.76);
+      --glass-border: rgba(255, 255, 255, 0.9);
+      --glass-shadow: 0 20px 45px rgba(216, 74, 117, 0.12);
+      --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+      --font-cursive: 'Dancing Script', cursive;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(253, 226, 232, 0.8) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(255, 209, 220, 0.6) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255, 245, 247, 0.9) 0px, transparent 80%);
+      background-attachment: fixed;
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* Arka Plan Hareketli Kalp ve Gül Parçacıkları Tuvali */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* İçerik Sarmalayıcı */
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================
+       2. HERO SECTION (Karşılama Bölümü)
+       ========================================================== */
+    .hero-section {
+      min-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 10px 40px;
+      position: relative;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 22px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--rose-accent);
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--deep-rose);
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(255, 141, 161, 0.2);
+      animation: floatBadge 3.2s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .couple-names {
+      font-family: var(--font-cursive);
+      font-size: clamp(2.6rem, 6.5vw, 4.4rem);
+      color: var(--wine-rose);
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 8px rgba(216, 74, 117, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .couple-names .heart-icon {
+      color: var(--deep-rose);
+      animation: heartBeat 1.4s ease-in-out infinite;
+      display: inline-block;
+      font-size: 0.8em;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.25); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.25); }
+      70% { transform: scale(1); }
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 5.2vw, 3.8rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      max-width: 660px;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      margin: 0 auto 36px;
+      font-style: italic;
+    }
+
+    /* Sayaç Kutusu (Birlikte Geçen Zaman) */
+    .time-counter-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 24px 32px;
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+      max-width: 580px;
+      width: 100%;
+    }
+
+    .counter-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--deep-rose);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+    }
+
+    .counter-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 12px 8px;
+      border-radius: 16px;
+      border: 1px solid rgba(253, 226, 232, 0.8);
+    }
+
+    .counter-num {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--wine-rose);
+      line-height: 1;
+    }
+
+    .counter-unit {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    /* Aşağı Kaydırma Oku */
+    .scroll-down-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--deep-rose);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .scroll-arrow {
+      animation: bounceArrow 2s infinite;
+      font-size: 1.4rem;
+    }
+
+    @keyframes bounceArrow {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(8px); }
+      60% { transform: translateY(4px); }
+    }
+
+    /* ==========================================================
+       3. BÖLÜM BAŞLIKLARI
+       ========================================================== */
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tag {
+      font-family: var(--font-cursive);
+      font-size: 1.75rem;
+      color: var(--deep-rose);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 4vw, 2.8rem);
+      color: var(--wine-rose);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 3px;
+    }
+
+    .section-desc {
+      max-width: 600px;
+      margin: 14px auto 0;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    /* ==========================================================
+       4. POLAROID FOTOĞRAF GALERİSİ (Anılarımız)
+       ========================================================== */
+    .gallery-section {
+      padding: 60px 0 90px;
+    }
+
+    .polaroid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px 28px;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .polaroid-card {
+      background: #FFFFFF;
+      padding: 14px 14px 24px;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(112, 36, 60, 0.12), 0 3px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+
+    /* Hafif Doğal Polaroid Eğiklikleri */
+    .polaroid-card:nth-child(1) { transform: rotate(-2.5deg); }
+    .polaroid-card:nth-child(2) { transform: rotate(2deg); }
+    .polaroid-card:nth-child(3) { transform: rotate(-1.8deg); }
+    .polaroid-card:nth-child(4) { transform: rotate(2.5deg); }
+    .polaroid-card:nth-child(5) { transform: rotate(-2deg); }
+    .polaroid-card:nth-child(6) { transform: rotate(1.5deg); }
+
+    .polaroid-card:hover {
+      transform: translateY(-12px) rotate(0deg) scale(1.04);
+      box-shadow: 0 25px 50px rgba(216, 74, 117, 0.22), 0 5px 15px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+    }
+
+    .polaroid-card::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55px;
+      height: 20px;
+      background: rgba(255, 228, 233, 0.7);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border-left: 2px dashed rgba(216, 74, 117, 0.3);
+      border-right: 2px dashed rgba(216, 74, 117, 0.3);
+    }
+
+    .photo-wrapper {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #FCEEF1;
+      position: relative;
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+
+    .polaroid-card:hover .photo-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .polaroid-caption {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .polaroid-title {
+      font-family: var(--font-cursive);
+      font-size: 1.5rem;
+      color: var(--wine-rose);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .polaroid-date {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-family: var(--font-sans);
+    }
+
+    /* ==========================================================
+       5. ROMANTİK KRONOLOJİ (Mini Timeline)
+       ========================================================== */
+    .timeline-section {
+      padding: 60px 0 90px;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background: linear-gradient(to bottom, #FFD1DC, #D84A75, #FFD1DC);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      padding: 12px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-node {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      right: -19px;
+      background: #FFFFFF;
+      border: 3px solid var(--deep-rose);
+      top: 22px;
+      border-radius: 50%;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(216, 74, 117, 0.35);
+      animation: pulseNode 2.5s infinite;
+    }
+
+    @keyframes pulseNode {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(216, 74, 117, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(216, 74, 117, 0); }
+    }
+
+    .timeline-item.right .timeline-node {
+      left: -19px;
+    }
+
+    .timeline-content {
+      background: var(--glass-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-border);
+      padding: 22px 26px;
+      border-radius: 20px;
+      box-shadow: var(--glass-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-4px);
+      border-color: var(--rose-accent);
+      box-shadow: 0 15px 35px rgba(216, 74, 117, 0.18);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--deep-rose);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--wine-rose);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .timeline-body {
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================
+       6. BÜYÜK SÜRPRİZ: TEKLİF BÖLÜMÜ (Grand Finale)
+       ========================================================== */
+    .proposal-section {
+      padding: 80px 0 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .envelope-box {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      perspective: 1000px;
+    }
+
+    /* Zarf Başlatıcı Buton / Kart */
+    .closed-envelope-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px dashed var(--rose-accent);
+      border-radius: 28px;
+      padding: 48px 30px;
+      box-shadow: 0 20px 50px rgba(216, 74, 117, 0.18);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closed-envelope-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--deep-rose);
+      box-shadow: 0 25px 60px rgba(216, 74, 117, 0.28);
+    }
+
+    .wax-seal {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 20px;
+      background: radial-gradient(circle at 35% 35%, #FF8DA1, #D84A75, #70243C);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(112, 36, 60, 0.35);
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      font-size: 2.2rem;
+      animation: pulseWax 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseWax {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .envelope-prompt {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      color: var(--wine-rose);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .envelope-hint {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Açılan Romantik Mektup */
+    .proposal-letter {
+      display: none;
+      background: #FFFFFF;
+      background-image: 
+        radial-gradient(#FDE2E8 1.2px, transparent 1.2px),
+        linear-gradient(to bottom, #FFFFFF, #FFF9FA);
+      background-size: 22px 22px, 100% 100%;
+      border-radius: 28px;
+      padding: 48px 36px;
+      box-shadow: 0 25px 65px rgba(112, 36, 60, 0.2);
+      border: 1px solid rgba(255, 209, 220, 0.85);
+      position: relative;
+      animation: unfoldLetter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @keyframes unfoldLetter {
+      0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .proposal-letter::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(216, 74, 117, 0.25);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .letter-header {
+      font-family: var(--font-cursive);
+      font-size: 2.5rem;
+      color: var(--deep-rose);
+      margin-bottom: 20px;
+    }
+
+    .letter-body {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .the-big-question {
+      font-family: var(--font-serif);
+      font-size: clamp(1.45rem, 3.6vw, 2.15rem);
+      color: var(--wine-rose);
+      font-weight: 700;
+      margin: 32px 0 35px;
+      line-height: 1.4;
+      padding: 0 10px;
+    }
+
+    /* Teklif Buton Alanı */
+    .decision-arena {
+      position: relative;
+      min-height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .btn-yes {
+      padding: 16px 44px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: var(--rose-gradient);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(246, 65, 108, 0.45);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .btn-yes::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s;
+    }
+
+    .btn-yes:hover::before {
+      left: 100%;
+    }
+
+    .btn-yes:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 40px rgba(246, 65, 108, 0.6);
+    }
+
+    /* Kaçan / Şakacı Hayır Butonu */
+    .btn-no {
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(216, 74, 117, 0.35);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      user-select: none;
+      z-index: 4;
+      white-space: nowrap;
+      touch-action: none;
+    }
+
+    /* ==========================================================
+       7. MODAL PENCERELERİ (Lightbox & Kutlama)
+       ========================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 21, 30, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Kutlama Modalı */
+    .celebration-modal {
+      background: #FFFFFF;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 32px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 25px 70px rgba(216, 74, 117, 0.35);
+      position: relative;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .celebration-ring {
+      font-size: 4.5rem;
+      margin-bottom: 12px;
+      display: inline-block;
+      animation: ringGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes ringGlow {
+      0%, 100% { transform: scale(1) rotate(-5deg); }
+      50% { transform: scale(1.15) rotate(5deg); }
+    }
+
+    .celebration-title {
+      font-family: var(--font-serif);
+      font-size: 2.3rem;
+      color: var(--wine-rose);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .celebration-message {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .celebration-signature {
+      font-family: var(--font-cursive);
+      font-size: 2.1rem;
+      color: var(--deep-rose);
+    }
+
+    /* Lightbox Görsel Modalı */
+    .lightbox-modal {
+      max-width: 900px;
+      width: 100%;
+      background: #FFFFFF;
+      padding: 16px 16px 24px;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      text-align: center;
+    }
+
+    .lightbox-img-wrapper {
+      max-height: 70vh;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .lightbox-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-caption {
+      font-family: var(--font-cursive);
+      font-size: 1.8rem;
+      color: var(--wine-rose);
+      margin-top: 14px;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 44px;
+      height: 44px;
+      background: #FFFFFF;
+      border: 2px solid var(--rose-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--wine-rose);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+      transform: scale(1.1);
+      background: var(--bg-soft-pink);
+    }
+
+    /* ==========================================================
+       8. FOOTER
+       ========================================================== */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 209, 220, 0.4);
+    }
+
+    footer .heart-pulse {
+      color: var(--deep-rose);
+      display: inline-block;
+      animation: heartBeat 1.4s infinite;
+    }
+
+    /* ==========================================================
+       9. MOBİL UYUMLULUK (Responsive Media Queries)
+       ========================================================== */
+    @media (max-width: 768px) {
+      .timeline-container::after {
+        left: 28px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 65px;
+        padding-right: 15px;
+        text-align: left !important;
+      }
+
+      .timeline-item.right {
+        left: 0;
+      }
+
+      .timeline-node {
+        left: 9px !important;
+        right: auto !important;
+      }
+
+      .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .proposal-letter {
+        padding: 35px 20px;
+      }
+
+      .decision-arena {
+        flex-direction: column;
+        gap: 16px;
+        min-height: 150px;
+      }
+
+      .btn-yes {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-no {
+        max-width: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Arka Planda Yavaşça Süzülen Kalp ve Gül Parçacıkları -->
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="content-wrapper">
+
+    <!-- ==========================================================
+         BÖLÜM 1: KARŞILAMA (HERO SECTION)
+         ========================================================== -->
+    <header class="hero-section">
+      <div class="badge-pill">
+        <span>✨ Sonsuz Bir Aşk Masalı ✨</span>
+      </div>
+
+      <!-- ==========================================
+           İSİMLER: BETÜL & DOĞU
+      =============================================== -->
+      <div class="couple-names">
+        <span>Betül</span>
+        <span class="heart-icon">❤️</span>
+        <span>Doğu</span>
+      </div>
+
+      <h1 class="hero-title">
+        Seninle Başlayan <span>Bir Masal...</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        "Gözlerinde kaybolduğum o ilk günden beri; her mevsim bahar, her anım seninle bir başka güzel..."
+      </p>
+
+      <!-- BİRLİKTE GEÇEN ZAMAN SAYACI (21 Ekim 2026'dan itibaren) -->
+      <div class="time-counter-card">
+        <span class="counter-label">
+          <span>⏳</span> Birlikte Geçen Her Saniyemiz
+        </span>
+        <div class="counter-grid">
+          <div class="counter-item">
+            <span class="counter-num" id="cntDays">0</span>
+            <span class="counter-unit">Gün</span>
+          </div>
+          <div class="counter-item">
+            <span class="counter-num" id="cntHours">0</span>
+            <span class="counter-unit">Saat</span>
+          </div>
+          <div class="counter-item">
+            <span class="counter-num" id="cntMins">0</span>
+            <span class="counter-unit">Dakika</span>
+          </div>
+          <div class="counter-item">
+            <span class="counter-num" id="cntSecs">0</span>
+            <span class="counter-unit">Saniye</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#gallery" class="scroll-down-hint">
+        <span>Hikayemize Doğru İlerle</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </header>
+
+
+    <!-- ==========================================================
+         BÖLÜM 2: ANILARIMIZ & POLAROID FOTOĞRAF GALERİSİ
+         ========================================================== -->
+    <section class="gallery-section" id="gallery">
+      <div class="section-header">
+        <span class="section-tag">Tatlı Hatıralar</span>
+        <h2 class="section-title">Fotoğraflarla Biz</h2>
+        <p class="section-desc">Zaman akıp giderken kalbimizde donup kalan o en kıymetli anlar...</p>
+      </div>
+
+      <!-- FOTOĞRAFLAR: Betül & Doğu'nun Özel Anıları (foto1.jpg ... foto6.jpg) -->
+      <div class="polaroid-grid">
+        
+        <!-- Fotoğraf 1 -->
+        <div class="polaroid-card" onclick="openLightboxFromCard(this, 'Seninle Yan Yana, Sonsuz Bir Huzur...')">
+          <div class="photo-wrapper">
+            <img src="foto1.jpg" alt="Betül & Doğu" style="object-position: center 25%;">
+          </div>
+          <div class="polaroid-caption">
+            <div class="polaroid-title">Seninle Her An Huzur 🌸</div>
+            <div class="polaroid-date">Gözlerindeki o sıcaklık, dünyadaki en güvenli limanım...</div>
+          </div>
+        </div>
+
+        <!-- Fotoğraf 2 -->
+        <div class="polaroid-card" onclick="openLightboxFromCard(this, 'Gülüşün Dünyamı Aydınlatıyor...')">
+          <div class="photo-wrapper">
+            <img src="foto2.jpg" alt="Betül & Doğu Neşeli An" style="object-position: center center;">
+          </div>
+          <div class="polaroid-caption">
+            <div class="polaroid-title">En Tatlı Deliliklerimiz 😜</div>
+            <div class="polaroid-date">Seninle çocuklaşmayı, en deli anlara kahkahayla gülmeyi seviyorum.</div>
+          </div>
+        </div>
+
+        <!-- Fotoğraf 3 -->
+        <div class="polaroid-card" onclick="openLightboxFromCard(this, 'Birlikte Geçen Her An Çok Kıymetli...')">
+          <div class="photo-wrapper">
+            <img src="foto3.jpg" alt="Betül & Doğu ve Tatlı Misafir" style="object-position: center 30%;">
+          </div>
+          <div class="polaroid-caption">
+            <div class="polaroid-title">Küçük Bir Mola & Sıcak Sohbet 🐾</div>
+            <div class="polaroid-date">Sen, ben ve sevimli bir dost... Hayat seninle güzel.</div>
+          </div>
+        </div>
+
+        <!-- Fotoğraf 4 (Akşam Kahvesi & Omuza Yaslanma) -->
+        <div class="polaroid-card" onclick="openLightboxFromCard(this, 'Gecenin Işıkları Altında, Kalp Kalbe...')">
+          <div class="photo-wrapper">
+            <img src="foto6.jpg" alt="Betül & Doğu Kahve Sohbeti" style="object-position: center 30%;">
+          </div>
+          <div class="polaroid-caption">
+            <div class="polaroid-title">Bir Kahve, Bir Ömür... ☕✨</div>
+            <div class="polaroid-date">Omzuma yaslandığın her an, zaman dursun sadece biz kalalım.</div>
+          </div>
+        </div>
+
+        <!-- Fotoğraf 5 (Deniz Kenarı) -->
+        <div class="polaroid-card" onclick="openLightboxFromCard(this, 'Birbirimizin Gözlerinde Kaybolurken...')">
+          <div class="photo-wrapper">
+            <img src="foto4.jpg" alt="Betül & Doğu Deniz Kenarı" style="object-position: center 35%;">
+          </div>
+          <div class="polaroid-caption">
+            <div class="polaroid-title">Rüzgara Karşı, Sadece İkimiz 🌊</div>
+            <div class="polaroid-date">Gözlerinin içine baktığımda tüm dünyanın sustuğu o büyüleyici an.</div>
+          </div>
+        </div>
+
+        <!-- Fotoğraf 6 (Romantik Öpücük) -->
+        <div class="polaroid-card" onclick="openLightboxFromCard(this, 'Sonsuza Kadar Bu Sevgiyle, El Ele...')">
+          <div class="photo-wrapper">
+            <img src="foto5.jpg" alt="Betül & Doğu Sevgi Dolu An" style="object-position: center center;">
+          </div>
+          <div class="polaroid-caption">
+            <div class="polaroid-title">Kalbimin En Derininde... 💖</div>
+            <div class="polaroid-date">Kokun, sıcacık sarılışın ve bana hissettirdiğin o tarifsiz aşk...</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================
+         BÖLÜM 3: ROMANTİK KRONOLOJİ (Mini Timeline)
+         ========================================================== -->
+    <section class="timeline-section">
+      <div class="section-header">
+        <span class="section-tag">Zaman Çizelgemiz</span>
+        <h2 class="section-title">Bizim Yolculuğumuz</h2>
+        <p class="section-desc">Kaderin yollarımızı ilmek ilmek birleştirdiği o dönüm noktaları...</p>
+      </div>
+
+      <div class="timeline-container">
+        
+        <!-- Adım 1 -->
+        <div class="timeline-item left">
+          <div class="timeline-node">✨</div>
+          <div class="timeline-content">
+            <span class="timeline-date">İlk Bakış</span>
+            <h3 class="timeline-title">O İlk Karşılaşma</h3>
+            <p class="timeline-body">Gözlerinin gözlerime değdiği o saniye, hayatımın geri kalanının sadece seninle anlam bulacağını hissetmiştim.</p>
+          </div>
+        </div>
+
+        <!-- Adım 2 -->
+        <div class="timeline-item right">
+          <div class="timeline-node">☕</div>
+          <div class="timeline-content">
+            <span class="timeline-date">İlk Randevu</span>
+            <h3 class="timeline-title">Kahvemiz ve Bitmeyen Sohbet</h3>
+            <p class="timeline-body">Dakikaların su gibi akıp gittiği, kalbimin göğsüme sığmadığı ve sana her saniye yeniden hayran kaldığım ilk randevumuz.</p>
+          </div>
+        </div>
+
+        <!-- Adım 3 -->
+        <div class="timeline-item left">
+          <div class="timeline-node">💖</div>
+          <div class="timeline-content">
+            <span class="timeline-date">Biz Olduğumuz An</span>
+            <h3 class="timeline-title">Kalplerimizin Birleşmesi</h3>
+            <p class="timeline-body">Artık 'sen' ya da 'ben' değil, fırtınalara birlikte göğüs geren, sevinçleri birlikte çoğaltan sımsıkı bir 'biz' olmuştuk.</p>
+          </div>
+        </div>
+
+        <!-- Adım 4 -->
+        <div class="timeline-item right">
+          <div class="timeline-node">💍</div>
+          <div class="timeline-content">
+            <span class="timeline-date">Bugün & Sonsuzluk</span>
+            <h3 class="timeline-title">Ve Şimdi: Yeni Bir Başlangıç</h3>
+            <p class="timeline-body">Bütün bu güzel anıları bir ömürle taçlandırmak için sana kalbimin en derininden soracağım tek bir soru kaldı...</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================
+         BÖLÜM 4: BÜYÜK SÜRPRİZ - TEKLİF BÖLÜMÜ (Grand Finale)
+         ========================================================== -->
+    <section class="proposal-section" id="proposal">
+      <div class="section-header">
+        <span class="section-tag">En Özel An</span>
+        <h2 class="section-title">Sana Küçük Bir Sorum Var...</h2>
+        <p class="section-desc">Aşağıdaki mühürlü mektuba dokunarak kalbimi açabilirsin.</p>
+      </div>
+
+      <div class="envelope-box">
+        
+        <!-- Kapalı Zarf Kartı -->
+        <div class="closed-envelope-card" id="envelopeTrigger" onclick="openProposalLetter()">
+          <div class="wax-seal">💌</div>
+          <h3 class="envelope-prompt">Mühürlü Bir Aşk Mektubu</h3>
+          <p class="envelope-hint">Zarfı açmak ve içindeki soruyu görmek için tıkla ✨</p>
+        </div>
+
+        <!-- Açılan Mektup & Teklif Alanı -->
+        <div class="proposal-letter" id="proposalLetter">
+          <div class="letter-header">Benim Canım Sevgilim...</div>
+          
+          <div class="letter-body">
+            <p>Hayatıma girdiğin andan itibaren dünya daha aydınlık, gecelerim daha huzurlu ve yarınlarım çok daha umut dolu oldu.</p>
+            <br>
+            <p>Gülüşün fırtınalı günlerimin en güvenli limanı, elin ise bu hayatta tuttuğum en güzel el oldu. Seninle birlikte gülmeyi, seninle birlikte öğrenmeyi ve seninle birlikte yaşlanmayı istiyorum.</p>
+          </div>
+
+          <!-- BÜYÜK SORU -->
+          <div class="the-big-question">
+            "Benimle bu güzel masalı bir ömür boyu el ele yazmaya var mısın?"
+          </div>
+
+          <!-- İKİ BUTON: EVET & KAÇAN HAYIR -->
+          <div class="decision-arena" id="decisionArena">
+            <!-- EVET BUTONU -->
+            <button class="btn-yes" id="btnYes" onclick="handleYesVote()">
+              <span>EVET! ❤️</span>
+            </button>
+
+            <!-- ŞAKACI / KAÇAN HAYIR BUTONU -->
+            <button class="btn-no" id="btnNo">
+              HAYIR 💔
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Sonsuz bir aşkla, senin için tasarlandı <span class="heart-pulse">❤️</span></p>
+      <p style="margin-top: 5px; opacity: 0.7;">Bir Ömür Boyu Birlikte...</p>
+    </footer>
+
+  </div>
+
+
+  <!-- ==========================================================
+       MODAL 1: FOTOĞRAF LIGHTBOX MODALI
+       ========================================================== -->
+  <div class="modal-overlay" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-modal">
+      <button class="modal-close-btn" onclick="closeLightboxDirect()">✕</button>
+      <div class="lightbox-img-wrapper">
+        <img id="lightboxImg" src="" alt="Büyütülmüş Fotoğraf">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================
+       MODAL 2: GÖRKEMLİ KUTLAMA MODALI ("EVET" DENDİĞİNDE)
+       ========================================================== -->
+  <div class="modal-overlay" id="celebrationModal" onclick="closeCelebrationOnOverlay(event)">
+    <div class="celebration-modal">
+      <button class="modal-close-btn" onclick="closeCelebrationModal()">✕</button>
+      <div class="celebration-ring">💍</div>
+      <h2 class="celebration-title">EVET DEDİ! ❤️</h2>
+      <p class="celebration-message">
+        Dünyanın en şanslı ve en mutlu insanı yaptın beni Betül'üm!<br>
+        İyi ki varsın, iyi ki hayatımdasın.<br>
+        Artık bu hayat yolunda seninle sonsuza kadar el eleyiz...
+      </p>
+      <div class="celebration-signature">
+        Seni Sonsuza Dek Seveceğim ✨<br>
+        <span style="font-size: 1.45rem; color: var(--wine-rose); font-family: var(--font-serif); font-weight: 700; display: inline-block; margin-top: 6px;">Doğu ❤️ Betül</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================
+       JAVASCRIPT: TÜM ETKİLEŞİMLER & ANİMASYONLAR
+       ========================================================== -->
+  <script>
+    /* ==========================================================
+       1. İLİŞKİ SAYAÇ TARİHİ (21 Ekim 2026'dan itibaren)
+       Ay indeksi: 0=Ocak, 9=Ekim
+       ========================================================== */
+    const relationshipStartDate = new Date(2026, 9, 21, 0, 0, 0);
+
+    function updateLiveCounter() {
+      const now = new Date();
+      const diff = now - relationshipStartDate;
+
+      if (diff > 0) {
+        const seconds = Math.floor((diff / 1000) % 60);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        document.getElementById('cntDays').innerText = days;
+        document.getElementById('cntHours').innerText = hours;
+        document.getElementById('cntMins').innerText = minutes;
+        document.getElementById('cntSecs').innerText = seconds;
+      } else {
+        document.getElementById('cntDays').innerText = 0;
+        document.getElementById('cntHours').innerText = 0;
+        document.getElementById('cntMins').innerText = 0;
+        document.getElementById('cntSecs').innerText = 0;
+      }
+    }
+    setInterval(updateLiveCounter, 1000);
+    updateLiveCounter();
+
+
+    /* ==========================================================
+       2. POLAROID LIGHTBOX YÖNETİMİ
+       ========================================================== */
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+
+    function openLightboxFromCard(cardElem, captionText) {
+      const renderedImg = cardElem.querySelector('img');
+      lightboxImg.src = renderedImg.currentSrc || renderedImg.src;
+      lightboxCaption.innerText = captionText;
+      lightboxModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightboxDirect() {
+      lightboxModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeLightbox(e) {
+      if (e.target === lightboxModal) {
+        closeLightboxDirect();
+      }
+    }
+
+
+    /* ==========================================================
+       3. TEKLİF ZARFINI AÇMA ETKİLEŞİMİ
+       ========================================================== */
+    function openProposalLetter() {
+      const envelopeTrigger = document.getElementById('envelopeTrigger');
+      const letter = document.getElementById('proposalLetter');
+      
+      envelopeTrigger.style.display = 'none';
+      letter.style.display = 'block';
+
+      // Zarf açıldığında zarif mini konfeti
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 50,
+          spread: 70,
+          origin: { y: 0.8 },
+          colors: ['#FF8DA1', '#FDE2E8', '#D84A75', '#F8E3C5']
+        });
+      }
+
+      // Mektuba odaklanarak kaydırma
+      setTimeout(() => {
+        letter.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 150);
+    }
+
+
+    /* ==========================================================
+       4. KAÇAN / ŞAKACI "HAYIR" BUTONU
+       ========================================================== */
+    const btnNo = document.getElementById('btnNo');
+    const btnYes = document.getElementById('btnYes');
+    const letterBox = document.getElementById('proposalLetter');
+
+    const runawayMessages = [
+      "Emin misin? 🥺",
+      "Bir daha düşün! 🤔",
+      "Kaçamazsın ki :) ✨",
+      "Bence de Evet demelisin ❤️",
+      "Hala mı deniyorsun? 😂",
+      "Kalbim kırılır ama... 😢",
+      "Kaderimiz yazıldı bir kere! 💖",
+      "Tek yol EVET! 🚀",
+      "Seni çok seviyorum 🥰"
+    ];
+    let msgIndex = 0;
+    let yesScale = 1;
+
+    function dodgeNoButton(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // Butonun yeni metnini güncelle
+      btnNo.innerText = runawayMessages[msgIndex % runawayMessages.length];
+      msgIndex++;
+
+      // YES butonunu her kaçışta birazcık daha büyüt
+      if (yesScale < 1.45) {
+        yesScale += 0.06;
+        btnYes.style.transform = `scale(${yesScale})`;
+      }
+
+      // Mektup kartı sınırlarına göre güvenli rastgele koordinatlar
+      const letterRect = letterBox.getBoundingClientRect();
+      const btnRect = btnNo.getBoundingClientRect();
+
+      const safeMaxX = Math.max(30, (letterRect.width / 2) - (btnRect.width / 2) - 35);
+      const safeMaxY = 90;
+
+      const randomX = (Math.random() * (safeMaxX * 2)) - safeMaxX;
+      const randomY = (Math.random() * (safeMaxY * 2)) - safeMaxY;
+
+      btnNo.style.position = 'relative';
+      btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+
+    // Hem mouse hover/pointer hem de mobil dokunuşta kaçma
+    btnNo.addEventListener('mouseenter', dodgeNoButton);
+    btnNo.addEventListener('touchstart', dodgeNoButton, { passive: false });
+    btnNo.addEventListener('pointerdown', dodgeNoButton);
+    btnNo.addEventListener('click', dodgeNoButton);
+
+
+    /* ==========================================================
+       5. "EVET!" TIKLANDIĞINDA: BÜYÜK KUTLAMA
+       ========================================================== */
+    function handleYesVote() {
+      // Muhteşem Konfeti & Kalp Patlamaları
+      triggerGrandCelebrationConfetti();
+
+      // Kutlama Modalı aç
+      setTimeout(() => {
+        document.getElementById('celebrationModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }, 500);
+    }
+
+    function closeCelebrationModal() {
+      document.getElementById('celebrationModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeCelebrationOnOverlay(e) {
+      if (e.target.id === 'celebrationModal') {
+        closeCelebrationModal();
+      }
+    }
+
+    function triggerGrandCelebrationConfetti() {
+      if (typeof confetti !== 'function') return;
+
+      const duration = 5 * 1000;
+      const animationEnd = Date.now() + duration;
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 65 * (timeLeft / duration);
+
+        confetti({
+          particleCount,
+          angle: 60,
+          spread: 70,
+          origin: { x: 0, y: 0.75 },
+          colors: ['#FF9A9E', '#FECFEF', '#FF8DA1', '#D84A75', '#F8E3C5', '#FFD700']
+        });
+        confetti({
+          particleCount,
+          angle: 120,
+          spread: 70,
+          origin: { x: 1, y: 0.75 },
+          colors: ['#FF9A9E', '#FECFEF', '#FF8DA1', '#D84A75', '#F8E3C5', '#FFD700']
+        });
+      }, 250);
+
+      // Gökyüzüne doğru yıldız/kalp yağmuru
+      confetti({
+        particleCount: 160,
+        spread: 110,
+        origin: { y: 0.6 },
+        colors: ['#D84A75', '#FF8DA1', '#FFFFFF', '#E5A88B']
+      });
+    }
+
+
+    /* ==========================================================
+       6. ARKA PLAN YÜZEN KALP & GÜL PARÇACIKLARI (CANVAS)
+       ========================================================== */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = [];
+    const particleCount = window.innerWidth < 768 ? 26 : 48;
+
+    class RomanticParticle {
+      constructor() {
+        this.reset(true);
+      }
+
+      reset(init = false) {
+        this.x = Math.random() * width;
+        this.y = init ? Math.random() * height : height + 25;
+        this.size = Math.random() * 14 + 10;
+        this.speedY = Math.random() * 0.75 + 0.35;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.45 + 0.22;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+        this.type = Math.random() > 0.4 ? 'heart' : 'petal';
+        this.color = Math.random() > 0.5 ? '#FF8DA1' : '#FDE2E8';
+      }
+
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX + Math.sin(this.y * 0.01) * 0.35;
+        this.rotation += this.rotationSpeed;
+
+        if (this.y < -35) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = this.color;
+
+        if (this.type === 'heart') {
+          // Kalp Çizimi
+          const s = this.size / 15;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(-10 * s, -10 * s, -20 * s, 5 * s, 0, 20 * s);
+          ctx.bezierCurveTo(20 * s, 5 * s, 10 * s, -10 * s, 0, 0);
+          ctx.fill();
+        } else {
+          // Gül Yaprağı Çizimi
+          ctx.beginPath();
+          ctx.ellipse(0, 0, this.size * 0.4, this.size * 0.8, Math.PI / 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new RomanticParticle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+
+</body>
+</html>
